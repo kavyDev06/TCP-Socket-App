@@ -1,5 +1,7 @@
 # tcpsocketapp
 
+https://github.com/user-attachments/assets/0bd44aa3-365a-4543-898f-5a02e643328d
+
 # 📡 Flutter to Python TCP Image Uploader
 
 This project demonstrates a simple yet powerful system where a **Flutter app uploads an image to a Python server via raw TCP sockets**, and the image is then accessible via a **browser-friendly HTTP server**.
@@ -28,7 +30,7 @@ The Flutter client selects an image and sends:
 1. Clone this repo
 2. Open the Flutter project
 3. Add required permissions (especially for file picker and internet access)
-4. Call the `connect()` function in your `SocketHelper` with your server's IP and port (e.g., `192.168.1.50`, `9999`)
+4. Call the `connect()` function in your `SocketHelper` with your server's IP and port (e.g., `192.168.x.x`, `9999`)
 5. Select an image and send it
 
 > 🔐 Tip: Use local IPs (like `192.168.x.x`) and ensure you're on the **same Wi-Fi** as the server.
