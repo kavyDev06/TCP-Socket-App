@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tcpsocketapp/helpers/socket_service.dart';
 import 'package:widget_zoom/widget_zoom.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
 
 
 
+
   Future<void> pickImage(String source)async{
     ImageSource selectedSource;
     if (source == "Camera") {
@@ -31,13 +33,15 @@ class _HomePageState extends State<HomePage> {
       throw Exception("Invalid source: $source");
     }
     XFile? image = await _picker.pickImage(source:selectedSource);
-    if(image != null){
-    setState(() {
-      isUpload = true;
-      imagePath = image.path;
-    });
+    File image1 = File(image!.path);
+  setState(() {
+    isUpload = true;
+    imagePath = image.path;
+  });
+    await SocketHelper.instance.connect("192.168.1.6",9999);
+    await SocketHelper.instance.sendImage(image1);
+    SnackBar(content: Text("Upload To Sever"));
     }
-  }
 
 
   @override
